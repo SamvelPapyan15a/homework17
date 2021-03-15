@@ -2,9 +2,17 @@
 
 const fs = require('fs');
 
-let input = fs.readFileSync('input.txt','utf-8');
-fs.writeFile("write.txt", input.replace(" ", "-"), function(err,data){
+fs.readFile('input.txt',function(err, data){
+    let input = "";
     if(err){
         return err.message;
     }
+    for(let i = 0; i < data.length; i++) {
+        input += String.fromCodePoint(data[i]);
+    }
+    fs.writeFile("write.txt", input.replace(" ", "-"), function(err,data){
+        if(err){
+            return err.message;
+        }
+    });
 });
