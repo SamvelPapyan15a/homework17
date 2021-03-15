@@ -3,7 +3,6 @@
 const fs = require('fs');
 
 let input = fs.readFileSync('input.txt','utf-8');
-console.log(input.replace(" ","-"));
 fs.writeFile("write.txt", input.replace(" ", "-"), function(err,data){
     if(err){
         return err.message;
