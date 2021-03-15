@@ -8,9 +8,9 @@ fs.readFile('input.txt',function(err, data){
         return err.message;
     }
     for(let i = 0; i < data.length; i++) {
-        input += String.fromCodePoint(data[i]);
+        input += (String.fromCodePoint(data[i]) == " ") ? "-" : String.fromCodePoint(data[i]);
     }
-    fs.writeFile("write.txt", input.replace(" ", "-"), function(err,data){
+    fs.writeFile("write.txt", input, function(err,data){
         if(err){
             return err.message;
         }
